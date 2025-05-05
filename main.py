@@ -17,7 +17,7 @@ class SublimeProjectLauncher(Flox):
                 self.add_item(
                     title="No project folders configured.",
                     subtitle="Please set projectDirectories in plugin settings.",
-                    icon="Images/app.png"
+                    icon="sublime.png"
                 )
                 return
 
@@ -26,7 +26,7 @@ class SublimeProjectLauncher(Flox):
                 self.add_item(
                     title=f"Open {folder_name} in Sublime",
                     subtitle=path,
-                    icon="Images/app.png",
+                    icon="sublime.png",
                     method="open_in_sublime",
                     parameters=[sublime_path, path]
                 )
@@ -34,7 +34,7 @@ class SublimeProjectLauncher(Flox):
             self.add_item(
                 title="Error loading settings",
                 subtitle=str(e),
-                icon="Images/app.png"
+                icon="sublime.png"
             )
 
     def open_in_sublime(self, sublime_path, folder_path):
@@ -44,7 +44,7 @@ class SublimeProjectLauncher(Flox):
             self.add_item(
                 title="Failed to launch Sublime",
                 subtitle=str(e),
-                icon="Images/app.png"
+                icon="sublime.png"
             )
 
 if __name__ == "__main__":

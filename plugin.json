@@ -2,7 +2,7 @@
     "ID": "ecf33422-2cb1-4f7b-872f-888e1c24c5a2",
     "ActionKeyword": "sb",
     "Name": "SublimeProjectLauncher",
-    "Description": "Launch Sublime Text editor",
+    "Description": "Launch Sublime Text editor from configured project folders",
     "Author": "Rahul Gupta",
     "Version": "1.0.0",
     "Language": "python",
@@ -10,10 +10,5 @@
     "UrlDownload": "https://github.com/Rahulrgd/SublimeProjectLauncher/releases/latest",
     "UrlSourceCode": "https://github.com/Rahulrgd/SublimeProjectLauncher",
     "IcoPath": "sublime.png",
-    "ExecuteFileName": "main.py",
-    "Settings": {
-        "sublimeAppPath": "D:\\InstalledSoftwares\\Sublime Text\\sublime_text.exe",
-        "projectDirectories": "D:\\Projects\\Folder1\nD:\\Projects\\Folder2"
-    }
-
+    "ExecuteFileName": "main.py"
 }
