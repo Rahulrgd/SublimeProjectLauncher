@@ -11,5 +11,9 @@
     "UrlSourceCode": "https://github.com/Rahulrgd/SublimeProjectLauncher",
     "IcoPath": "sublime.png",
     "ExecuteFileName": "main.py",
-    "Settings": []
+    "Settings": {
+        "sublimeAppPath": "D:\\InstalledSoftwares\\Sublime Text\\sublime_text.exe",
+        "projectDirectories": "D:\\Projects\\Folder1\nD:\\Projects\\Folder2"
+    }
+
 }
