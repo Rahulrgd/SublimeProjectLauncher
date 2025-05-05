@@ -1,16 +1,42 @@
-# Sublime Project Launcher
+Here’s the improved section in proper **Markdown (`.md`) format** for your `README.md`:
 
-This Flow Launcher plugin allows you to search for and open project folders in Sublime Text.
+````markdown
+## Notes & Customization
 
-## Features
-- Search your project folders and open them in Sublime Text directly.
+🚧 **This plugin is a work in progress.**  
+I'm still learning how to build Flow Launcher plugins and also have limited experience with Python. However, the basic functionality is working as intended for now.
 
-## Installation
-1. Download the plugin or clone this repository.
-2. Install the plugin by running `pm install file:///path/to/plugin-folder`.
+### ⚙️ System-Specific Configuration
 
-## Usage
-- Press `Alt+Space`, type `sp`, and select the project folder you want to open in Sublime Text.
+This plugin has been built and tested with system-specific paths, including:
 
-## Configuration
-- Add or remove directories in `projects.json`.
+- The location of the **Sublime Text executable** on my PC.
+- The **directories** I want to open in Sublime Text via the plugin.
+
+Because of this, the plugin might not work out-of-the-box on your machine. You’ll need to make the following changes in the `main.py` file:
+
+1. **Update the path to your Sublime Text executable**
+2. **Modify the folder paths** that you want to open in Sublime
+
+### 📁 Plugin Setup Instructions
+
+1. **Download or clone** this repository.
+2. **Make the necessary path changes** mentioned above.
+3. **Paste the entire plugin folder** into the Flow Launcher plugins directory:
+
+```plaintext
+C:\Users\<YourUsername>\AppData\Roaming\FlowLauncher\Plugins
+````
+
+> **To find this directory:**
+>
+> * Open Flow Launcher
+> * Go to *Settings → Installed Plugins*
+> * Click on any non-default plugin
+> * Click the small **folder icon** under the plugin name
+> * File Explorer will open the plugin directory
+
+```
+
+Let me know if you'd like the full `README.md` compiled with this section integrated.
+```
