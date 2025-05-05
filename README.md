@@ -1,6 +1,3 @@
-Here’s the improved section in proper **Markdown (`.md`) format** for your `README.md`:
-
-````markdown
 ## Notes & Customization
 
 🚧 **This plugin is a work in progress.**  
@@ -36,7 +33,4 @@ C:\Users\<YourUsername>\AppData\Roaming\FlowLauncher\Plugins
 > * Click the small **folder icon** under the plugin name
 > * File Explorer will open the plugin directory
 
-```
-
-Let me know if you'd like the full `README.md` compiled with this section integrated.
 ```
