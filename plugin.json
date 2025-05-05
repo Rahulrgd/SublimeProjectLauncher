@@ -6,9 +6,9 @@
   "Version": "1.0",
   "Language": "python",
   "ExecuteFileName": "main.py",
-  "Keyword": "sp",
+  "Keyword": "sb",
   "Website": "https://github.com/Rahulrgd/SublimeProjectLauncher",
   "UrlDownload": "https://github.com/Rahulrgd/SublimeProjectLauncher/releases/latest",
   "UrlSourceCode": "https://github.com/Rahulrgd/SublimeProjectLauncher",
-  "IcoPath": "https://cdn.jsdelivr.net/gh/Rahulrgd/SublimeProjectLauncher/icon.png"
+  "IcoPath": "icon.png"
 }
