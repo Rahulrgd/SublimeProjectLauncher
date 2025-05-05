@@ -1,0 +1,52 @@
+name: Publish Release
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths-ignore: 
+      - .github/workflows/*
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      python_ver: 3.11
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ env.python_ver }}
+
+      - name: Get version from plugin.json
+        id: version
+        uses: notiz-dev/github-action-json-property@release
+        with: 
+          path: 'plugin.json'
+          prop_path: 'Version'
+
+      - name: Show version
+        run: "echo Version: ${{ steps.version.outputs.prop }}"
+        
+
+      - name: Install dependencies (optional)
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt -t ./lib || echo "No requirements.txt found"
+
+      - name: Zip plugin
+        run: |
+          zip -r SublimeProjectLauncher-${{ steps.version.outputs.prop }}.zip . -x '*.git*'
+
+      - name: Publish GitHub Release
+        if: success()
+        uses: softprops/action-gh-release@v1
+        with:
+          files: 'SublimeProjectLauncher-${{ steps.version.outputs.prop }}.zip'
+          tag_name: "v${{ steps.version.outputs.prop }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
