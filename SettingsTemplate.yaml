@@ -1,0 +1,28 @@
+#$schema: https://www.flowlauncher.com/schemas/settings-template.schema.json
+
+body:
+  - type: textBlock
+    attributes:
+      description: >
+        Welcome to the Sublime Project Launcher plugin settings.
+        Set the Sublime Text application path and one or more project directories
+        you frequently work with.
+
+  - type: inputWithFileBtn
+    attributes:
+      name: sublimeAppPath
+      label: Sublime Text Application Path
+      description: Path to the Sublime Text executable file
+      defaultValue: C:\Program Files\Sublime Text\sublime_text.exe
+
+  - type: textarea
+    attributes:
+      name: projectDirectories
+      label: Project Directories
+      description: >
+        Enter paths to your project folders, each on a new line.
+        Example:
+        C:\Users\YourName\Projects\Project1
+        C:\Users\YourName\WebApps\AwesomeApp
+      defaultValue: |
+        

@@ -1,1 +1,2 @@
 flowlauncher
+flox-lib==0.18.0

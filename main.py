@@ -1,47 +1,51 @@
-# -*- coding: utf-8 -*-
+import os
+import subprocess
+import sys
 
-import sys, os, subprocess
-parent_folder_path = os.path.abspath(os.path.dirname(__file__))
-sys.path.append(parent_folder_path)
-sys.path.append(os.path.join(parent_folder_path, 'lib'))
-sys.path.append(os.path.join(parent_folder_path, 'plugin'))
+sys.path.append(os.path.join(os.path.dirname(__file__), 'lib'))
+from flox import Flox
 
-from flowlauncher import FlowLauncher
-
-class SublimeProjectLauncher(FlowLauncher):
-
+class SublimeProjectLauncher(Flox):
     def query(self, query):
-        return [
-            {
-                "Title": "Open Sublime in AllTexts",
-                "SubTitle": "Open Sublime Text in D:\\InstalledSoftwares\\Sublime Text\\AllTexts",
-                "IcoPath": "sublime.png",
-                "JsonRPCAction": {
-                    "method": "open_sublime",
-                    "parameters": [r"D:\InstalledSoftwares\Sublime Text\AllTexts"]
-                }
-            },
-            {
-                "Title": "Open Sublime in Notepad",
-                "SubTitle": "Open Sublime Text in D:\\Downloads\\Documents\\Notepad",
-                "IcoPath": "sublime.png",
-                "JsonRPCAction": {
-                    "method": "open_sublime",
-                    "parameters": [r"D:\Downloads\Documents\Notepad"]
-                }
-            }
-        ]
+        try:
+            results = []
+            sublime_path = self.settings.get("sublimeAppPath", "")
+            raw_dirs = self.settings.get("projectDirectories", "")
+            dirs = [d.strip() for d in raw_dirs.splitlines() if d.strip()]
 
-    def open_sublime(self, folder_path):
-        sublime_path = r"D:\InstalledSoftwares\Sublime Text\sublime_text.exe"
+            if not dirs:
+                self.add_item(
+                    title="No project folders configured.",
+                    subtitle="Please set projectDirectories in plugin settings.",
+                    icon="sublime.png"
+                )
+                return
+
+            for path in dirs:
+                folder_name = os.path.basename(path.rstrip("\\/"))
+                self.add_item(
+                    title=f"Open {folder_name} in Sublime",
+                    subtitle=path,
+                    icon="sublime.png",
+                    method="open_in_sublime",
+                    parameters=[sublime_path, path]
+                )
+        except Exception as e:
+            self.add_item(
+                title="Error loading settings",
+                subtitle=str(e),
+                icon="sublime.png"
+            )
+
+    def open_in_sublime(self, sublime_path, folder_path):
         try:
             subprocess.Popen([sublime_path, folder_path])
         except Exception as e:
-            return [{
-                "Title": "Error launching Sublime",
-                "SubTitle": str(e),
-                "IcoPath": "Images/app.png"
-            }]
+            self.add_item(
+                title="Failed to launch Sublime",
+                subtitle=str(e),
+                icon="sublime.png"
+            )
 
 if __name__ == "__main__":
     SublimeProjectLauncher()
