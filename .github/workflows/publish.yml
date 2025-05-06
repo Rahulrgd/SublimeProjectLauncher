@@ -46,7 +46,7 @@ jobs:
         if: success()
         uses: softprops/action-gh-release@v1
         with:
-          files: 'SublimeProjectLauncher-${{ steps.version.outputs.prop }}.zip'
+          files: 'SublimeProjectLauncher-v${{ steps.version.outputs.prop }}.zip'
           tag_name: "v${{ steps.version.outputs.prop }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
