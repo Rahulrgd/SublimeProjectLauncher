@@ -23,6 +23,6 @@ body:
         Enter paths to your project folders, each on a new line.
         Example:
         C:\Users\YourName\Projects\Project1
-        C:\Users\YourName\WebApps\AwesomeApp
       defaultValue: |
+        C:\
         
