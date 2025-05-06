@@ -32,5 +32,5 @@ C:\Users\<YourUsername>\AppData\Roaming\FlowLauncher\Plugins
 > * Click on any non-default plugin
 > * Click the small **folder icon** under the plugin name
 > * File Explorer will open the plugin directory
- 
+  
 ```
